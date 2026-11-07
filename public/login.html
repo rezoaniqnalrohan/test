@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Product Manager</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-body">
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="brand-icon auth-brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <h1>Welcome Back</h1>
+        <p>Log in to manage your inventory and products</p>
+      </div>
+
+      <!-- Demo Account Quick Fill Button -->
+      <div class="demo-box">
+        <div class="demo-info">
+          <span class="demo-badge">Demo Account</span>
+          <span class="demo-text">demo@example.com &bull; Password123!</span>
+        </div>
+        <button type="button" id="btnFillDemo" class="btn btn-sm btn-outline-primary">Use Demo</button>
+      </div>
+
+      <!-- General Alert Message -->
+      <div id="authAlert" class="alert alert-danger hidden" role="alert"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input 
+            type="email" 
+            id="loginEmail" 
+            placeholder="you@example.com" 
+            required 
+            autocomplete="email"
+            autofocus
+          >
+          <div class="field-error" id="loginEmailError"></div>
+        </div>
+
+        <div class="form-group">
+          <div class="label-row">
+            <label for="loginPassword">Password</label>
+          </div>
+          <input 
+            type="password" 
+            id="loginPassword" 
+            placeholder="••••••••" 
+            required 
+            autocomplete="current-password"
+          >
+          <div class="field-error" id="loginPasswordError"></div>
+        </div>
+
+        <button type="submit" id="btnLoginSubmit" class="btn btn-primary btn-block">
+          Log In
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Don't have an account? <a href="/register.html">Create an account</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
