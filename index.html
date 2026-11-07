@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Inventory — Animated Product Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Animated Ambient Background -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand" id="brandLogo">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          <span class="logo-pulse"></span>
+        </div>
+        <div class="brand-info">
+          <span class="brand-title">Nexus<span class="text-gradient">Inventory</span></span>
+          <span class="brand-tag">PRO STUDIO</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#heroSection" class="nav-link active" data-nav="hero">Overview</a>
+        <a href="#dashboardSection" class="nav-link" data-nav="dashboard">Workspace</a>
+        <a href="#featuresSection" class="nav-link" data-nav="features">Capabilities</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Switcher -->
+        <button id="themeToggle" class="icon-btn" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Auth / User Profile Area -->
+        <div id="userStatusArea" class="user-status-area">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <!-- Hero Section -->
+    <section id="heroSection" class="hero-section">
+      <div class="hero-badge reveal-up">
+        <span class="pulse-dot"></span>
+        <span>Next-Gen Interactive Product Management</span>
+      </div>
+
+      <h1 class="hero-title reveal-up delay-1">
+        Manage Your Products with <br>
+        <span class="text-gradient-animated">Fluid Precision &amp; Speed</span>
+      </h1>
+
+      <p class="hero-subtitle reveal-up delay-2">
+        Experience a blazingly fast, zero-latency inventory workspace with real-time analytics, dynamic category distribution, and fluid micro-interactions.
+      </p>
+
+      <div class="hero-cta reveal-up delay-3">
+        <button id="btnHeroAdd" class="btn btn-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>Create New Product</span>
+        </button>
+        <a href="#dashboardSection" class="btn btn-glass">
+          <span>Explore Live Workspace</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Floating Live Metrics Strip -->
+      <div class="hero-metrics reveal-up delay-4">
+        <div class="metric-pill">
+          <span class="metric-dot green"></span>
+          <span>100% Client-Side Persistence</span>
+        </div>
+        <div class="metric-pill">
+          <span class="metric-dot cyan"></span>
+          <span>60fps CSS3 &amp; Canvas Animations</span>
+        </div>
+        <div class="metric-pill">
+          <span class="metric-dot purple"></span>
+          <span>Instant CSV Export &amp; Analytics</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Interactive Workspace / Dashboard -->
+    <section id="dashboardSection" class="dashboard-section">
+      <!-- KPI Stat Cards -->
+      <div class="stats-grid">
+        <div class="stat-card tilt-card">
+          <div class="stat-card-glow blue"></div>
+          <div class="stat-header">
+            <span class="stat-title">Total Products</span>
+            <div class="stat-icon blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statTotalProducts">0</div>
+          <div class="stat-footer">
+            <span class="stat-trend positive">Active catalog items</span>
+          </div>
+        </div>
+
+        <div class="stat-card tilt-card">
+          <div class="stat-card-glow purple"></div>
+          <div class="stat-header">
+            <span class="stat-title">Inventory Units</span>
+            <div class="stat-icon purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statTotalUnits">0</div>
+          <div class="stat-footer">
+            <span class="stat-trend">Combined warehouse stock</span>
+          </div>
+        </div>
+
+        <div class="stat-card tilt-card">
+          <div class="stat-card-glow emerald"></div>
+          <div class="stat-header">
+            <span class="stat-title">Portfolio Value</span>
+            <div class="stat-icon emerald">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statTotalValue">$0.00</div>
+          <div class="stat-footer">
+            <span class="stat-trend positive">Real-time valuation</span>
+          </div>
+        </div>
+
+        <div class="stat-card tilt-card">
+          <div class="stat-card-glow amber"></div>
+          <div class="stat-header">
+            <span class="stat-title">Stock Alerts</span>
+            <div class="stat-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statLowStock">0</div>
+          <div class="stat-footer">
+            <span class="stat-trend warning">Items with ≤ 5 units</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Category Breakdown Bar -->
+      <div class="analytics-card glass-panel">
+        <div class="analytics-header">
+          <div>
+            <h3>Inventory Value Distribution</h3>
+            <p>Live visual breakdown by product category</p>
+          </div>
+          <div id="categoryLegend" class="category-legend"></div>
+        </div>
+        <div id="distributionBar" class="distribution-bar"></div>
+      </div>
+
+      <!-- Workspace Controls Toolbar -->
+      <div class="toolbar glass-panel">
+        <div class="toolbar-top">
+          <!-- Search Input -->
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Search products by name or category..." autocomplete="off">
+            <button id="btnClearSearch" class="clear-btn hidden" title="Clear search">&times;</button>
+          </div>
+
+          <div class="toolbar-actions">
+            <!-- View Mode Toggle (Table vs Grid) -->
+            <div class="view-switcher" role="group" aria-label="View mode">
+              <button id="btnViewTable" class="view-btn active" title="Table View">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+              </button>
+              <button id="btnViewGrid" class="view-btn" title="Card Grid View">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Sort Select -->
+            <div class="select-box">
+              <select id="sortSelect" aria-label="Sort products">
+                <option value="newest">Newest Added</option>
+                <option value="name-asc">Name (A → Z)</option>
+                <option value="name-desc">Name (Z → A)</option>
+                <option value="price-desc">Price (High → Low)</option>
+                <option value="price-asc">Price (Low → High)</option>
+                <option value="qty-desc">Stock (High → Low)</option>
+                <option value="qty-asc">Stock (Low → High)</option>
+              </select>
+            </div>
+
+            <!-- Export CSV -->
+            <button id="btnExportCsv" class="btn btn-glass btn-sm" title="Export to CSV">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Export</span>
+            </button>
+
+            <!-- Reset Demo Data -->
+            <button id="btnResetDemo" class="btn btn-glass btn-sm" title="Restore sample products">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Reset Demo</span>
+            </button>
+
+            <!-- Add Product Primary Button -->
+            <button id="btnOpenAddModal" class="btn btn-glow btn-sm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Add Product</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="category-pills" id="categoryFilterPills">
+          <button class="pill active" data-category="All">All Categories</button>
+          <button class="pill" data-category="Peripherals">Peripherals</button>
+          <button class="pill" data-category="Displays">Displays</button>
+          <button class="pill" data-category="Audio">Audio</button>
+          <button class="pill" data-category="Accessories">Accessories</button>
+          <button class="pill" data-category="Workspace">Workspace</button>
+        </div>
+      </div>
+
+      <!-- Table View Container -->
+      <div id="tableViewContainer" class="data-container glass-panel">
+        <div class="table-scroll">
+          <table class="nexus-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Unit Price</th>
+                <th>Stock Status</th>
+                <th>Total Value</th>
+                <th class="text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Card Grid View Container -->
+      <div id="gridViewContainer" class="products-grid hidden"></div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state glass-panel hidden">
+        <div class="empty-illustration">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <h3 id="emptyTitle">No matching products found</h3>
+        <p id="emptySubtitle">Try clearing your search filters or add a new item to your catalog.</p>
+        <button id="btnEmptyAdd" class="btn btn-glow mt-4">Add First Product</button>
+      </div>
+    </section>
+
+    <!-- Features Showcase Section -->
+    <section id="featuresSection" class="features-section">
+      <div class="section-heading">
+        <span class="section-tag">ENGINEERED FOR CLARITY</span>
+        <h2>Built for Modern Product Teams</h2>
+        <p>Every interaction is crafted with smooth animations and instant visual feedback.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card glass-panel">
+          <div class="feature-icon cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3>Zero-Latency State Engine</h3>
+          <p>Instant CRUD operations powered by persistent browser storage with animated state transitions and zero page reloads.</p>
+        </div>
+
+        <div class="feature-card glass-panel">
+          <div class="feature-icon purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+              <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+            </svg>
+          </div>
+          <h3>Live Portfolio Analytics</h3>
+          <p>Automatic valuation bars, category breakdowns, and animated counters recalculate on every product update.</p>
+        </div>
+
+        <div class="feature-card glass-panel">
+          <div class="feature-icon emerald">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3>Interactive Profile &amp; Auth</h3>
+          <p>Switch accounts, register new profiles, or test with one-click demo credentials right inside the interface.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="brand-title">Nexus<span class="text-gradient">Inventory</span></span>
+        <p>Crafted with fluid CSS animations &amp; modern JavaScript.</p>
+      </div>
+      <div class="footer-links">
+        <span>&copy; 2026 Nexus Inventory Studio</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Add / Edit Product Modal -->
+  <div id="productModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
+    <div class="modal-window glass-modal">
+      <div class="modal-header">
+        <h2 id="productModalTitle">Add New Product</h2>
+        <button id="btnCloseProductModal" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+
+      <form id="productForm" novalidate>
+        <input type="hidden" id="productId">
+
+        <div class="form-group">
+          <label for="productName">Product Name <span class="req">*</span></label>
+          <input type="text" id="productName" placeholder="e.g. Studio Pro OLED Display" required maxlength="120" autocomplete="off">
+          <span class="error-msg" id="errName"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="productCategory">Category</label>
+            <select id="productCategory">
+              <option value="Peripherals">Peripherals</option>
+              <option value="Displays">Displays</option>
+              <option value="Audio">Audio</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Workspace">Workspace</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="productSku">SKU / Code</label>
+            <input type="text" id="productSku" placeholder="Auto-generated if empty" maxlength="20" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="productPrice">Unit Price ($) <span class="req">*</span></label>
+            <input type="number" id="productPrice" step="0.01" min="0" placeholder="0.00" required>
+            <span class="error-msg" id="errPrice"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="productQuantity">Stock Quantity <span class="req">*</span></label>
+            <input type="number" id="productQuantity" step="1" min="0" placeholder="0" required>
+            <span class="error-msg" id="errQty"></span>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="btnCancelProduct" class="btn btn-glass">Cancel</button>
+          <button type="submit" id="btnSaveProduct" class="btn btn-glow">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-window glass-modal modal-sm">
+      <div class="modal-header">
+        <h2>Confirm Deletion</h2>
+        <button id="btnCloseDeleteModal" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to remove <strong id="deleteProductName"></strong> from your inventory?</p>
+        <p class="text-subtle mt-2">This action will immediately update your portfolio analytics.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnCancelDelete" class="btn btn-glass">Cancel</button>
+        <button type="button" id="btnConfirmDelete" class="btn btn-danger">Delete Item</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth Modal (Login / Sign Up) -->
+  <div id="authModal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-window glass-modal modal-sm">
+      <div class="modal-header">
+        <h2 id="authModalTitle">Welcome Back</h2>
+        <button id="btnCloseAuthModal" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" data-tab="login">Sign In</button>
+        <button type="button" class="auth-tab" data-tab="register">Create Account</button>
+      </div>
+
+      <div class="demo-banner">
+        <span>Instant Demo: <code>demo@nexus.io</code></span>
+        <button type="button" id="btnQuickDemo" class="btn-chip">Auto-Fill</button>
+      </div>
+
+      <form id="authForm" novalidate>
+        <div class="form-group hidden" id="authNameGroup">
+          <label for="authName">Full Name</label>
+          <input type="text" id="authName" placeholder="Alex Rivera" autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="authEmail">Email Address</label>
+          <input type="email" id="authEmail" placeholder="you@nexus.io" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="authPassword">Password</label>
+          <input type="password" id="authPassword" placeholder="••••••••" required>
+        </div>
+
+        <span class="error-msg" id="errAuth"></span>
+
+        <div class="modal-footer mt-4">
+          <button type="submit" id="btnAuthSubmit" class="btn btn-glow w-full">Sign In to Workspace</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Stack -->
+  <div id="toastStack" class="toast-stack" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
